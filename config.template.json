@@ -1,0 +1,11 @@
+{
+    "serviceUrl": "https://www.kaltura.com", 
+    "apiSecret": "Admin Secret from KMC - https://kmc.kaltura.com/index.php/kmcng/settings/integrationSettings",
+    "partnerId": 8752389, //Partner ID from https://kmc.kaltura.com/index.php/kmcng/settings/integrationSettings 
+    "sessionDuration": 86400, //time to live of Kaltura Session, in seconds
+    "resourceIds": { //these are the room resource IDs you've created. Read & Watch: https://pitch.kaltura-pitch.com/message/b68f06feaf6245816ec0c14f770ba97589c8f0c2a70d4cd038f2b2b94ed4
+        "1": 1187661,
+        "2": 1187671,
+        "3": 1187681
+    }
+}

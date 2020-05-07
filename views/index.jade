@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  img.heroimg#heroimg(src="/images/kaltura-logo.png" alt="Kaltura Logo")
+  h1= title
+  h4.divider _______________
+  form(method='POST' action='/launchroom')
+    div.form-group
+      label.label(for='firstName') First Name:
+      input#firstName.input.form-control(type='text', placeholder='first name' name='firstName' value='William')
+    div.form-group
+      label.label(for='lastName') Last Name:
+      input#lastName.input.form-control(type='text', placeholder='first name' name='lastName' value='Young')
+    div.form-group
+      label.label(for='email') Email:
+      input#email.input.form-control(type='text', placeholder='first name' name='email' value='wyoung@salesforce.com')
+    div.form-group
+      label.label(for='role') Role:
+      select#role.input.form-control(name='role')
+        option(label='instructor',   value='instructor') Instructor
+        option(label='guest',   value='guest') Guest
+    div.form-group
+      label.label(for='room') Choose Your Room:
+      select#room.input.form-control(name='room')
+        option(label='Room 1',   value='1') Room 1
+        option(label='Room 2',   value='2') Room 2
+        option(label='Room 3',   value='3') Room 3
+    h4.divider _______________
+    button.join.btn-primary(type='submit') Join Room!
