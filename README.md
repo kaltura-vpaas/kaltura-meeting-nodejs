@@ -3,6 +3,8 @@
 This app shows how to embed Kaltura Meetings rooms (it skips the room creation part).
 This is a very basic node express based app (generated using [Express Generator](https://expressjs.com/en/starter/generator.html)).
 
+![Watch the Kaltura Meetings Developer Guide](https://cfvod.kaltura.com/p/2357341/sp/235734100/thumbnail/entry_id/1_un6d28q7/width/500/vid_sec/30/quality/100)
+
 # To run
 1. Checkout/Download the files
 1. `npm install`
