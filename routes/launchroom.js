@@ -17,7 +17,7 @@ router.post('/', function(req, res, next) {
   const expiry = req.app.get('ksessionDuration');
   const type = kaltura.enums.SessionType.USER;
 
-  // Read about rooms management and all the room launch customizatin options here:
+  // Read about rooms management and all the room launch customization options here:
   // https://pitch.kaltura-pitch.com/message/b68f06feaf6245816ec0c14f770ba97589c8f0c2a70d4cd038f2b2b94ed4
 
   // Map room number to resourceId. Resources (virtual rooms) are created via the scheduleResource.add API:
