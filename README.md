@@ -15,6 +15,14 @@ This is a very basic node express based app (generated using [Express Generator]
    * Windows - `set DEBUG=myapp:* & npm start`
 1. Load http://localhost:3000/ in your browser to access the app.
 
+# How this code works?
+* express is configured with two routes: index and launchroom
+* index (/) - the homepage shows a form mimicing user registration for an event, and allows chosing between rooms and roles
+* launchroom renders the room or redirects back to homepage if no valid post data was provided
+   * It gets all the Kaltura params from the express app (who reads it from config.json)
+   * It then creates the Kaltura session with respective privileges according to the choices made in the homepage
+   * And finally renders the room as an iframe (see launchroom.jade)
+
 # Where to get help
 * Join the [Kaltura Community Forums](https://forum.kaltura.org/) to ask questions or start discussions
 * Read the [Code of conduct](https://forum.kaltura.org/faq) and be patient and respectful
