@@ -28,7 +28,7 @@ router.post('/', function(req, res, next) {
   if (resourceIds.hasOwnProperty(room)) {
     resourceId = resourceIds[room];
   } else {
-    res.status(400).send("Error: invalid room number: "+room + " ("+req.body.room+")");
+    res.status(400).send("Error: invalid room number: " + room + " (" + req.body.room + ")");
   }
 
   // Set priveleges parameter for Kaltura Session (KS) generation.
@@ -38,7 +38,7 @@ router.post('/', function(req, res, next) {
   // Mandatory fields: role, userContextualRole, resourceId (or eventId)
   let userContextualRole = req.body.role == "instructor" ? "0" : "3";  
   let privileges = "role:viewerRole,userContextualRole:" + userContextualRole + ",resourceId:" + resourceId + 
-    ",firstName:" + req.body.firstName + ",lastName:" + req.body.lastName;
+    ",firstName:" + req.body.firstName + ",lastName:" + req.body.lastName + ",email:" + req.body.email;
   let userId = req.body.email; // using email as userId, but it can be any alphanumeric unique string if you prefer
 
   // Get a Kaltura Session

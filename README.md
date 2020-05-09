@@ -1,6 +1,6 @@
 # Kaltura Meeting Embed Sample
 
-This app shows how to embed Kaltura Meetings rooms (it skips the room creation part).
+This shows how to embed Kaltura Meetings rooms into a Node.js application (it skips the room creation part).
 This is a very basic node express based app (generated using [Express Generator](https://expressjs.com/en/starter/generator.html)).
 
 [![Watch the Kaltura Meetings Developer Guide](https://cfvod.kaltura.com/p/2357341/sp/235734100/thumbnail/entry_id/1_un6d28q7/width/500/vid_sec/30/quality/100 "Watch the Kaltura Meetings Developer Guide")](https://pitch.kaltura-pitch.com/message/b68f06feaf6245816ec0c14f770ba97589c8f0c2a70d4cd038f2b2b94ed4)
@@ -10,7 +10,7 @@ This is a very basic node express based app (generated using [Express Generator]
 1. `npm install`
 1. Copy `config.template.json` to `config.json`
 1. Open `config.json`, configure according to the instructions and remove all comments
-1. Run - 
+1. Run:
    * On Mac/Linux - `DEBUG=kalturameeting:* npm start`
    * Windows - `set DEBUG=myapp:* & npm start`
 1. Load http://localhost:3000/ in your browser to access the app.
@@ -22,6 +22,20 @@ This is a very basic node express based app (generated using [Express Generator]
    * It gets all the Kaltura params from the express app (who reads it from config.json)
    * It then creates the Kaltura session with respective privileges according to the choices made in the homepage
    * And finally renders the room as an iframe (see launchroom.jade)
+
+# Key steps in Kaltura Meetings integration
+1. Create a resource / virtual room (or reuse an existing one). This step needs to be done outside of the app using the [scheduleResource.add API](https://developer.kaltura.com/console/service/scheduleResource/action/add). The created resourceIds should be populated in `config.json`. Key parameters in API:
+   * objectType: KalturaLocationScheduleResource
+   * tag: vcprovider:newrow
+1. Generate a Kaltura Session (KS) which will authenticate a user into a room (done on backend)
+   * The `privileges` parameter should look similar to this: `userContextualRole:0,role:viewerRole,resourceId:1092641`
+      * `userContextualRole`: 0/1 is a host. 3 is a guest.
+      * `role` should always be set to `viewerRole`
+      * `resourceId` was acquired in step 1
+   * `type` should be USER
+   * `userId` should be some unique identifier (i.e. email or any alphanumeric string which uniquely itendifies a user)
+   * `secret` should be your account’s User Secret (not Admin Secret)
+1. Join the room by launching it into an iframe. The iframe’s src will look similar to this: `https://2792031.kaf.kaltura.com/virtualEvent/launch?ks=XXXXXX`, where XXXXXX is the KS generated in step 2.
 
 # Where to get help
 * Join the [Kaltura Community Forums](https://forum.kaltura.org/) to ask questions or start discussions
