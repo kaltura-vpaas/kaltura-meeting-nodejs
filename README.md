@@ -24,9 +24,9 @@ This is a very basic node express based app (generated using [Express Generator]
    * And finally renders the room as an iframe (see launchroom.jade)
 
 # Key steps in Kaltura Meetings integration
-1. Create a resource / virtual room (or reuse an existing one). This step needs to be done outside of the app using the [scheduleResource.add API](https://developer.kaltura.com/console/service/scheduleResource/action/add). The created resourceIds should be populated in `config.json`. Key parameters in API:
-   * objectType: KalturaLocationScheduleResource
-   * tag: vcprovider:newrow
+1. Create a resource / virtual room (or reuse an existing one). This step needs to be done outside of the app using the <a href="https://developer.kaltura.com/console/service/scheduleResource/action/add" target="_blank">scheduleResource.add API</a>. The created resourceIds should be populated in `config.json`. Key parameters in API:
+   * `objectType`: KalturaLocationScheduleResource
+   * `tags`: vcprovider:newrow
 1. Generate a Kaltura Session (KS) which will authenticate a user into a room (done on backend)
    * The `privileges` parameter should look similar to this: `userContextualRole:0,role:viewerRole,resourceId:1092641`
       * `userContextualRole`: 0/1 is a host. 3 is a guest.
@@ -35,7 +35,7 @@ This is a very basic node express based app (generated using [Express Generator]
    * `type` should be USER
    * `userId` should be some unique identifier (i.e. email or any alphanumeric string which uniquely itendifies a user)
    * `secret` should be your account’s User Secret (not Admin Secret)
-1. Join the room by launching it into an iframe. The iframe’s src will look similar to this: `https://2792031.kaf.kaltura.com/virtualEvent/launch?ks=XXXXXX`, where XXXXXX is the KS generated in step 2.
+1. Join the room by launching it into an iframe. The iframe’s src will look similar to this: `https://1234567.kaf.kaltura.com/virtualEvent/launch?ks=XXXXXX`, where XXXXXX is the KS generated in step 2.
 
 # Where to get help
 * Join the [Kaltura Community Forums](https://forum.kaltura.org/) to ask questions or start discussions
