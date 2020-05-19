@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var logger = require('morgan');
 const configFile = require('./config.json');
+const expAutoSan = require('express-autosanitizer');
 
 var indexRouter = require('./routes/index');
 var launchroomRouter = require('./routes/launchroom');
@@ -20,6 +21,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(expAutoSan.all);
 
 app.use('/', indexRouter);
 app.use('/launchroom', launchroomRouter);

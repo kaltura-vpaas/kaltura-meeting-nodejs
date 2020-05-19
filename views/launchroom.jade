@@ -1,4 +1,4 @@
 extends layout
 
 block content
-  iframe.resp-iframe(width='100%', height='100%', src=roomUrl, frameborder='0', gesture='media', allow='camera *;microphone *;encrypted-media *;fullscreen *;geolocation *;autoplay *;display-capture *;picture-in-picture *;publickey-credentials *;sync-xhr *', allowfullscreen, webkitallowfullscreen, mozAllowFullScreen)
+  iframe.resp-iframe(width='100%', height='100%', src=roomUrl, frameborder='0', gesture='media', allow='camera *;microphone *;encrypted-media *;fullscreen *;geolocation *;autoplay *;display-capture *;picture-in-picture *;publickey-credentials *;sync-xhr *', sandbox='allow-same-origin allow-scripts allow-forms', allowfullscreen, webkitallowfullscreen, mozAllowFullScreen)

@@ -13,16 +13,23 @@
   "dependencies": {
     "debug": "~2.6.9",
     "express": "~4.16.1",
+    "express-autosanitizer": "^1.0.1",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "kaltura-client": "^16.0.0",
     "morgan": "~1.9.1"
   },
-  "keywords": ["kaltura","webrtc","meetings","virtual events","embed"],
-    "author": "Kaltura Inc.",
-    "license": "AGPL-3.0",
-    "bugs": {
-      "url": "https://github.com/kaltura-vpaas/kaltura-meetings-nodejs/issues"
-    },
-    "homepage": "https://pitch.kaltura-pitch.com/message/b68f06feaf6245816ec0c14f770ba97589c8f0c2a70d4cd038f2b2b94ed4"
+  "keywords": [
+    "kaltura",
+    "webrtc",
+    "meetings",
+    "virtual events",
+    "embed"
+  ],
+  "author": "Kaltura Inc.",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/kaltura-vpaas/kaltura-meetings-nodejs/issues"
+  },
+  "homepage": "https://pitch.kaltura-pitch.com/message/b68f06feaf6245816ec0c14f770ba97589c8f0c2a70d4cd038f2b2b94ed4"
 }

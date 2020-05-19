@@ -9,6 +9,11 @@ router.get('/', function(req, res, next) {
 
 /* POST launch a room with params. */
 router.post('/', function(req, res, next) {
+  let sRoom = req.autosan.body.room;
+  let sRole = req.autosan.body.role;
+  let sFirstName = req.autosan.body.firstName;
+  let sLastName = req.autosan.body.lastName;
+  let sEmail = req.autosan.body.email;
   const config = new kaltura.Configuration();
   config.serviceUrl = req.app.get('kserviceUrl');
   const client = new kaltura.Client(config);
@@ -24,11 +29,11 @@ router.post('/', function(req, res, next) {
   // https://developer.kaltura.com/console/service/scheduleResource/action/add
   resourceIds = req.app.get('kresourceIds');
   let resourceId = null;
-  let room = parseInt(req.body.room);
+  let room = parseInt(sRoom);
   if (resourceIds.hasOwnProperty(room)) {
     resourceId = resourceIds[room];
   } else {
-    res.status(400).send("Error: invalid room number: " + room + " (" + req.body.room + ")");
+    res.status(400).send("Error: invalid room number: " + room + " (" + sRoom + ")");
   }
 
   // Set priveleges parameter for Kaltura Session (KS) generation.
@@ -36,10 +41,10 @@ router.post('/', function(req, res, next) {
   //   0 = instructor
   //   3 = guest
   // Mandatory fields: role, userContextualRole, resourceId (or eventId)
-  let userContextualRole = req.body.role == "instructor" ? "0" : "3";  
+  let userContextualRole = sRole == "instructor" ? "0" : "3";  
   let privileges = "role:viewerRole,userContextualRole:" + userContextualRole + ",resourceId:" + resourceId + 
-    ",firstName:" + req.body.firstName + ",lastName:" + req.body.lastName + ",email:" + req.body.email;
-  let userId = req.body.email; // using email as userId, but it can be any alphanumeric unique string if you prefer
+    ",firstName:" + sFirstName + ",lastName:" + sLastName + ",email:" + sEmail;
+  let userId = sEmail; // using email as userId, but it can be any alphanumeric unique string if you prefer
 
   // Get a Kaltura Session
   kaltura.services.session.start(apiSecret, userId, type, partnerId, expiry, privileges)
