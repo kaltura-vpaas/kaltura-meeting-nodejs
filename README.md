@@ -15,7 +15,7 @@ This is a very basic node express based app (generated using [Express Generator]
    * Windows - `set DEBUG=myapp:* & npm start`
 1. Load http://localhost:3000/ in your browser to access the app.
 
-## How this code works?
+## How does this code work?
 * express is configured with two routes: index and launchroom
 * index (/) - the homepage shows a form mimicing user registration for an event, and allows chosing between rooms and roles
 * launchroom renders the room or redirects back to homepage if no valid post data was provided
