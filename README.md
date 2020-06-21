@@ -5,6 +5,8 @@ This is a very basic node express based app (generated using [Express Generator]
 
 [![Watch the Kaltura Meetings Developer Guide](https://cfvod.kaltura.com/p/2357341/sp/235734100/thumbnail/entry_id/1_un6d28q7/width/500/vid_sec/30/quality/100 "Watch the Kaltura Meetings Developer Guide")](https://pitch.kaltura-pitch.com/message/b68f06feaf6245816ec0c14f770ba97589c8f0c2a70d4cd038f2b2b94ed4)
 
+For the API and options please review the Kaltura Meeting Embed dDocumentation at https://github.com/kaltura-vpaas/virtual-meeting-rooms .
+
 ## To run
 1. Checkout/Download the files
 1. `npm install`
